@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Piedra, papel o tijera</title>
+        <script>
+             // Paso 1: Definir opciones y variables para puntajes
+const opciones = ["Piedra", "Papel", "Tijera"];
+let puntosUsuario = 0;
+let puntosComputadora = 0;
+let jugarDeNuevo = true;
+
+console.log("¡Bienvenido a Piedra, Papel o Tijera!");
+
+// Paso 2: Función principal del juego
+while (jugarDeNuevo) {
+    // Solicitar la elección del usuario
+    let eleccionUsuario = prompt("Elige: Piedra, Papel o Tijera").trim();
+
+    // Validar entrada del usuario
+    if (!opciones.includes(eleccionUsuario)) {
+        console.log("Entrada no válida. Por favor elige Piedra, Papel o Tijera.");
+        continue;
+    }
+
+    // Generar elección de la computadora
+    let eleccionComputadora = opciones[Math.floor(Math.random() * opciones.length)];
+    console.log(`Usuario eligió: ${eleccionUsuario}`);
+    console.log(`Computadora eligió: ${eleccionComputadora}`);
+
+    // Determinar el ganador de la ronda
+    if (eleccionUsuario === eleccionComputadora) {
+        console.log("¡Es un empate!");
+    } else if (
+        (eleccionUsuario === "Piedra" && eleccionComputadora === "Tijera") ||
+        (eleccionUsuario === "Tijera" && eleccionComputadora === "Papel") ||
+        (eleccionUsuario === "Papel" && eleccionComputadora === "Piedra")
+    ) {
+        console.log("¡Ganaste esta ronda!");
+        puntosUsuario++;
+    } else {
+        console.log("La computadora ganó esta ronda.");
+        puntosComputadora++;
+    }
+
+    // Mostrar puntajes
+    console.log(`Puntaje - Usuario: ${puntosUsuario}, Computadora: ${puntosComputadora}`);
+
+    // Preguntar si quiere jugar otra vez
+    let respuesta = prompt("¿Quieres jugar otra ronda? (sí/no)").trim().toLowerCase();
+    if (respuesta !== "sí") {
+        jugarDeNuevo = false;
+        console.log("¡Gracias por jugar!");
+        console.log(`Puntaje final - Usuario: ${puntosUsuario}, Computadora: ${puntosComputadora}`);
+    }
+}
+
+            </script> 
+    </head>
+    <body>
+        <h1>Piedra, papel o tijera</h1>
+    </body>
+</html>
