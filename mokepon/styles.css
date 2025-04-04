@@ -1,3 +1,13 @@
-h1 {
-    color: antiquewhite;
+.titulo{
+    color: bisque;
+    width: 330px;
+    height: 50px;
+    background-color: brown;
+}
+
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
